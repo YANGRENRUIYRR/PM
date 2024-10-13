@@ -1,6 +1,1 @@
 __pycache__/
-*.sqlite3
-工作区.code-workspace
-runserver.bat
-start_file/
-time.log
