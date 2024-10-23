@@ -45,6 +45,11 @@
    ```
    打开<http://127.0.0.1:8000>即可看到结果
 
+###### 更改帮助文档
+
+1.中文帮助文档可以在`./main/templates/main/help.html`中更改
+
+2.英文帮助文档可以在`./EN_main/templates/EN_main/help.html`中更改
 
 #### 如何参与开源项目
 
