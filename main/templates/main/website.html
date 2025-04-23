@@ -1,0 +1,29 @@
+{% extends 'main/base.html' %}
+
+{% block page_header %}
+  <h1>{{ website.text }}</h1>
+{% endblock page_header %}
+
+{% block content %}
+
+  <p>
+    <a href="{% url 'main:new_username' website.id %}">添加新的用户名和密码</a>
+  </p>
+
+  {% for username in usernames %}
+    <div class="card mb-3">
+      <!-- Card header with timestamp and edit link -->
+      <h4 class="card-header">
+        {{ username.date_added|date:'Y-m-d H:i:s' }}
+        <small><a href="{% url 'main:edit_username' username.id %}">
+          编辑用户名和密码</a></small>
+      </h4>
+      <!-- Card body with username text -->
+      <div class="card-body">用户名:{{ username.text }}</div>
+      <div class="card-body">密码:{{ username.text2 }}</div>
+    </div>
+  {% empty %}
+    <p>这个网站还没有用户名和密码</p>
+  {% endfor %}
+
+{% endblock content %}
