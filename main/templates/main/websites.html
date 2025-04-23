@@ -1,0 +1,22 @@
+{% extends 'main/base.html' %}
+
+{% block page_header %}
+  <h1>网站</h1>
+{% endblock page_header %}
+
+{% block content %}
+
+  <ul class="list-group border-bottom pb-2 mb-4">
+    {% for website in websites %}
+      <li class="list-group-item border-0">
+        <a href="{% url 'main:website' website.id %}">
+          {{ website.text }}</a>
+      </li>
+    {% empty %}
+      <li class="list-group-item border-0">尚未添加任何网站</li>
+    {% endfor %}
+  </ul>
+
+  <a href="{% url 'main:new_website' %}">添加一个新的网站</a>
+
+{% endblock content %}
