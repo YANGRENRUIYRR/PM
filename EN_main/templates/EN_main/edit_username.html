@@ -1,0 +1,15 @@
+{% extends "EN_main/base.html" %}
+{%load django_bootstrap5%}
+{% block content %}
+
+
+  <p class="display-6">Edit username and password:</p>
+
+  <form action="{% url 'EN_main:edit_username' username.id %}" method='post'>
+    {% csrf_token %}
+    <div class="mb-3"><input type="text" name="text" value={{username.text}} maxlength="200" class="form-control" required="" id="id_text"></div>
+    <div class="mb-3"><input type="text" name="text2" value={{username.text2}} maxlength="200" class="form-control" required="" id="id_text2"></div>
+    {% bootstrap_button button_type="submit" content="Save changes" %}
+  </form>
+
+{% endblock content %}
