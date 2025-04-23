@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+  {%load static%}
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>密码管理器</title>
+  <link rel="icon" href="/static/image/favicon.ico">
+  <script language="javascript">
+    setTimeout("javascript:location.href='/../../../../../'", 3000);
+  </script>
+  <link crossorigin="anonymous" href="/static/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" rel="stylesheet">
+  <script crossorigin="anonymous" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" src="/static/js/bootstrap.min.js"></script>
+</head>
+<body>
+  <nav class="navbar navbar-expand-md navbar-light bg-light mb-4 border">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/">
+          &nbsp;密码管理器&nbsp;</a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+        data-bs-target="#navbarCollapse" aria-controls="navbarCollapse"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav me-auto mb-2 mb-md-0">
+          <li class="nav-item">
+            <a class="nav-link" href="/websites/">
+              网站&nbsp;</a></li>
+          <li class="nav-item">
+            <a class="nav-link" href="/help/">
+              帮助</a></li>
+          <li class="nav-item">
+            <a class="nav-link" href="/EN/">
+              English</a></li>
+        </ul> <!-- End of links on left side of navbar -->
+        <!-- Account-related links -->
+        <ul class="navbar-nav ms-auto mb-2 mb-md-0">
+
+          {% if user.is_authenticated %}
+            <li class="nav-item">
+              <span class="navbar-text me-2">&nbsp;你好, {{ user.username }}&nbsp;。
+                </span></li>
+          {% else %}
+            <li class="nav-item">
+              <a class="nav-link" href="/accounts/register">
+                  注册&nbsp;</a></li>
+            <li class="nav-item">
+              <a class="nav-link" href="/accounts/login">
+                  登录</a></li>
+          {% endif %}
+
+        </ul> <!-- End of account-related links -->
+
+        {% if user.is_authenticated %}
+          <form action="{% url 'accounts:logout' %}" method='post'>
+            {% csrf_token %}
+            <button name='submit' class='btn btn-outline-secondary btn-sm'>
+              &nbsp;退出登录&nbsp;</button>
+          </form>
+        {% endif %}
+
+      </div> <!-- Closes collapsible parts of navbar -->
+
+    </div> <!-- Closes navbar's container -->
+    
+  </nav> <!-- End of navbar -->
+  <main class="container">
+    <div class="pb-2 mb-2 border-bottom">
+      
+    <h2 class="display-5">出现内部错误。(500)</h2>
+
+    </div>
+
+    <div>
+      
+  <h4 class="display-6">即将在3秒后跳转到主页。</h4>
+
+    </div>
+  </main>
+
+</body>
+</html>
