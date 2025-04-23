@@ -1,0 +1,13 @@
+{% extends 'EN_main/base.html' %}
+{% block page_header %}
+  <div class="p-3 mb-4 bg-light border rounded-3">
+    <div class="container-fluid py-4">
+      <h1 class="display-3">Keep your password.</h1>
+      
+      <p class="lead">Enter your username, password and website name, and we will keep it for you.</p>
+
+      <a class="btn btn-primary btn-lg mt-1"
+          href="{% url 'EN_accounts:register' %}">Register &raquo;</a>
+    </div>
+  </div>
+{% endblock page_header %}
