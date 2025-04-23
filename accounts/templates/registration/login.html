@@ -1,0 +1,18 @@
+{% extends 'main/base.html' %}
+{% load django_bootstrap5 %}
+
+{% block page_header %}
+  <h2>登录您的帐户</h2>
+{% endblock page_header %}
+
+{% block content %}
+
+  <form action="{% url 'accounts:login' %}" method='post'>
+    {% csrf_token %}
+    <div class="mb-3"><label class="form-label" for="id_username">用户名</label><input type="text" name="username" autofocus="" autocapitalize="none" autocomplete="username" maxlength="150" class="form-control" placeholder="Username" required="" id="id_username"></div>
+    <div class="mb-3"><label class="form-label" for="id_password">密码</label><input type="password" name="password" autocomplete="current-password" class="form-control" placeholder="Password" required="" id="id_password"></div>
+    <input type="hidden" name="next" value="{{ next }}">
+    {% bootstrap_button button_type="submit" content="登录" %}
+  </form>
+
+{% endblock content %}
