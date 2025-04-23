@@ -1,0 +1,14 @@
+{% extends "main/base.html" %}
+{% load django_bootstrap5 %}
+{%block page_header%}
+  <p2 class="display-6">添加新的用户名和密码:</p2>
+{%endblock page_header%}
+{% block content %}
+  <form action="{% url 'main:new_username' website.id %}" method='post'>
+    {% csrf_token %}
+    <p>用户名</p><div class="mb-3"><input type="text" name="text" maxlength="200" class="form-control" required="" id="id_text"></div>
+    <p>密码</p><div class="mb-3"><input type="text" name="text2" maxlength="200" class="form-control" required="" id="id_text2"></div>
+    {% bootstrap_button button_type="submit" content="添加用户名和密码" %}
+  </form>
+
+{% endblock content %}
