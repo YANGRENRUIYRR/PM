@@ -1,0 +1,13 @@
+{% extends 'main/base.html' %}
+{% block page_header %}
+  <div class="p-3 mb-4 bg-light border rounded-3">
+    <div class="container-fluid py-4">
+      <h1 class="display-3">保管你的密码</h1>
+      
+      <p class="lead">登记需要保管密码的网站，并登记用户名和密码。</p>
+
+      <a class="btn btn-primary btn-lg mt-1"
+          href="{% url 'accounts:register' %}">注册 &raquo;</a>
+    </div>
+  </div>
+{% endblock page_header %}
