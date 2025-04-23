@@ -1,0 +1,17 @@
+{% extends "main/base.html" %}
+{% load django_bootstrap5 %}
+{% block page_header %}
+  <h2>注册您的帐户</h2>
+{% endblock page_header %}
+{% block content %}
+
+  <form action="{% url 'accounts:register' %}" method='post'>
+    {% csrf_token %}
+        <div class="mb-3"><label class="form-label" for="id_username">用户名</label><input type="text" name="username" maxlength="150" autocapitalize="none" autocomplete="username" autofocus="" class="form-control" placeholder="Username" required="" aria-describedby="id_username_helptext" id="id_username"><div class="form-text">必需150个字符或更少。只有字母、数字和@/./+/-/_。</div>
+    </div><div class="mb-3"><label class="form-label" for="id_password1">密码</label><input type="password" name="password1" autocomplete="new-password" class="form-control" placeholder="Password" required="" aria-describedby="id_password1_helptext" id="id_password1"><div class="form-text"><ul><li>您的密码不能与您的其他个人信息太相似。</li><li>您的密码必须至少包含8个字符。</li><li>您的密码不能是常用密码。</li><li>您的密码不能全是数字。</li></ul></div>
+    </div><div class="mb-3"><label class="form-label" for="id_password2">密码确认</label><input type="password" name="password2" autocomplete="new-password" class="form-control" placeholder="Password confirmation" required="" aria-describedby="id_password2_helptext" id="id_password2"><div class="form-text">输入与之前相同的密码进行验证。</div>
+    </div>
+        <button class="btn btn-primary" type="submit">注册</button>
+  </form>
+
+{% endblock content %}
